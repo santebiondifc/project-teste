@@ -34,13 +34,11 @@ export default function Quiz({ setPage }) {
     const ans = q.accept[0];
 
     if (!canvasRef.current.validateDrawing(ans)) {
-      setFeedback({ type: 'retry', msg: '✏️ Disegna la risposta!' });
-      speak('Disegna la risposta con il dito!');
+      setFeedback({ type: 'retry', msg: '✏️ Prova ancora! Disegna la risposta!' });
+      speak('Prova ancora! Disegna la risposta con il dito!');
       return;
     }
 
-
-    
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 3500);
 
@@ -62,13 +60,14 @@ export default function Quiz({ setPage }) {
     <div className="page active" id="p-quiz">
       <Confetti trigger={showConfetti} />
       
-      <div className="big-title" style={{ fontSize: '26px' }}>Domanda per te! 🤔</div>
-      <div className="question-card">
+      <div className="big-title stagger-1" style={{ fontSize: 'clamp(22px, 5.5vw, 28px)' }}>Domanda per te! 🤔</div>
+      
+      <div className="question-card stagger-2">
         <div className="question-text">{q.q}</div>
-        <div style={{ fontSize: '50px', marginTop: '8px' }}>{q.img}</div>
+        <div style={{ fontSize: '50px', marginTop: '10px', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))' }}>{q.img}</div>
       </div>
       
-      <div className="subtitle" style={{ fontSize: '17px' }}>Scrivi la risposta con il ditino ☝️</div>
+      <div className="subtitle stagger-3" style={{ fontSize: '16px', opacity: 0.7 }}>Scrivi la risposta con il ditino ☝️</div>
       
       <DrawingCanvas ref={canvasRef} hintText={q.hint} />
 
@@ -85,8 +84,8 @@ export default function Quiz({ setPage }) {
         <button className="btn" onClick={handleCheck}>✅ Rispondo!</button>
       </div>
       <div className="nav-row">
-        <button className="btn" onClick={nextQuiz} style={{ fontSize: '16px', padding: '10px 24px' }}>⏩ Altra domanda</button>
-        <button className="btn btn-red" onClick={() => setPage('menu')} style={{ fontSize: '16px', padding: '10px 24px' }}>🏠 Menu</button>
+        <button className="btn" onClick={nextQuiz} style={{ fontSize: '15px', padding: '10px 24px' }}>⏩ Altra domanda</button>
+        <button className="btn btn-red" onClick={() => setPage('menu')} style={{ fontSize: '15px', padding: '10px 24px' }}>🏠 Menu</button>
       </div>
     </div>
   );

@@ -12,15 +12,21 @@ export default function Intro({ setPage }) {
 
   return (
     <div className="page active" id="p-intro">
-      <div className="big-title">🔢 Impariamo i Numeri! 🔢</div>
-      <div style={{ fontSize: '80px', animation: 'bounce 1s ease infinite' }}>🧒</div>
-      <div className="subtitle">
+      <div className="big-title stagger-1">🔢 Impariamo i Numeri! 🔢</div>
+      
+      <div className="stagger-2" style={{ fontSize: '80px', animation: 'float 3s ease-in-out infinite' }}>
+        🧒
+      </div>
+      
+      <div className="subtitle stagger-3">
         Ciao piccolo amico!<br />Oggi impariamo i numeri<br />giocando insieme! 🎉
       </div>
-      <button className="btn" onClick={handleStart}>
+      
+      <button className="btn stagger-4" onClick={handleStart}>
         ▶ INIZIAMO!
       </button>
-      <button className="speech-btn" onClick={handleSpeak}>🔊</button>
+      
+      <button className="speech-btn stagger-5" onClick={handleSpeak}>🔊</button>
     </div>
   );
 }

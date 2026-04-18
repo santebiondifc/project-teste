@@ -56,24 +56,32 @@ export default function Learn({ setPage }) {
     <div className="page active" id="p-learn">
       <Confetti trigger={showConfetti} />
       
-      <div className="progress-dots">
+      <div className="progress-dots stagger-1">
         {Array.from({ length: 10 }).map((_, i) => (
           <div key={i} className={`dot ${doneList.has(i) ? 'done' : ''} ${i === currentNum ? 'active' : ''}`} />
         ))}
       </div>
 
-      <div className="big-title">Questo è il numero</div>
-      <div className="number-display">{currentNum}</div>
-      <div className="subtitle">{numberNames[currentNum].toUpperCase()}</div>
+      <div className="big-title stagger-2" style={{ fontSize: 'clamp(22px, 5vw, 32px)' }}>Questo è il numero</div>
+      <div className="number-display stagger-2">{currentNum}</div>
+      <div className="subtitle stagger-3" style={{ 
+        fontSize: 'clamp(18px, 4.5vw, 26px)', 
+        fontWeight: 800, 
+        color: 'rgba(255, 215, 0, 0.9)',
+        textTransform: 'uppercase',
+        letterSpacing: '0.08em'
+      }}>
+        {numberNames[currentNum]}
+      </div>
       
-      <button className="speech-btn" onClick={() => speakCurrentNumber(currentNum)}>🔊</button>
-      <div className="subtitle" style={{ fontSize: '18px' }}>Ora segui la forma con il ditino! 👇</div>
+      <button className="speech-btn stagger-3" onClick={() => speakCurrentNumber(currentNum)}>🔊</button>
+      <div className="subtitle stagger-4" style={{ fontSize: '16px', opacity: 0.7 }}>Ora segui la forma con il ditino! 👇</div>
 
       <DrawingCanvas ref={canvasRef} templateText={currentNum} />
 
       <div id="learn-feedback">
         {feedback && (
-          <div className={feedback.type === 'ok' ? 'feedback-ok' : 'feedback-retry'} style={feedback.msg.includes('campione') ? {fontSize: '20px'} : {}}>
+          <div className={feedback.type === 'ok' ? 'feedback-ok' : 'feedback-retry'} style={feedback.msg.includes('campione') ? {fontSize: '18px'} : {}}>
             {feedback.msg}
           </div>
         )}
@@ -83,7 +91,7 @@ export default function Learn({ setPage }) {
         <button className="clear-btn" onClick={handleClear}>🔄 Riprova</button>
         <button className="btn" onClick={handleCheck}>✅ Fatto!</button>
       </div>
-      <button className="btn btn-red" onClick={() => setPage('menu')} style={{ fontSize: '16px', padding: '10px 24px' }}>🏠 Menu</button>
+      <button className="btn btn-red" onClick={() => setPage('menu')} style={{ fontSize: '15px', padding: '10px 24px' }}>🏠 Menu</button>
     </div>
   );
 }

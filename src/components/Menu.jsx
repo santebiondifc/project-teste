@@ -14,8 +14,8 @@ export default function Menu({ setPage }) {
 
   return (
     <div className="page active" id="p-menu">
-      <div className="big-title">Cosa facciamo?</div>
-      <div className="menu-row">
+      <div className="big-title stagger-1">Cosa facciamo? 🎮</div>
+      <div className="menu-row stagger-2">
         <button className="activity-btn" onClick={() => handleAction('learn', '')}>
           <span>📖</span>Impara i numeri
         </button>
@@ -26,7 +26,7 @@ export default function Menu({ setPage }) {
           <span>🤔</span>Rispondi con un numero
         </button>
       </div>
-      <button className="speech-btn" onClick={handleSpeak}>🔊</button>
+      <button className="speech-btn stagger-3" onClick={handleSpeak}>🔊</button>
     </div>
   );
 }

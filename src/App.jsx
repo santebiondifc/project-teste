@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import Intro from './components/Intro'
-import Menu from './components/Menu'
-import Learn from './components/Learn'
-import Draw from './components/Draw'
-import Quiz from './components/Quiz'
+import { useState } from 'react';
+import Intro from './components/Intro';
+import Menu from './components/Menu';
+import Learn from './components/Learn';
+import Draw from './components/Draw';
+import Quiz from './components/Quiz';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('intro')
